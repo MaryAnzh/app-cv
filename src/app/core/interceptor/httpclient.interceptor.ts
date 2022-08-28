@@ -13,10 +13,6 @@ export class HTTPClientInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const clientRequest = request.clone({
-      setHeaders: { 'Authorization': `Bearer` },
-      url: `${request.url}`,
-    });
-    return next.handle(clientRequest);
+    return next.handle(request);
   }
 }

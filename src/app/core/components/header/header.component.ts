@@ -12,10 +12,10 @@ export class HeaderComponent implements OnInit {
   isEn: boolean = true;
 
   constructor(
-    public translate: TranslateService,
+    private _translate: TranslateService,
   ) {
-    translate.addLangs(['en', 'ru']);
-    translate.setDefaultLang('en');
+    _translate.addLangs(['en', 'ru']);
+    _translate.setDefaultLang('en');
    }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
       this.isRu = false;
       this.isEn = true;
     }
-    this.translate.use(lang);
+    this._translate.use(lang);
   }
 
 }
